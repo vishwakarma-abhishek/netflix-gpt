@@ -5,6 +5,7 @@ import { auth } from "../utils/firebase,";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_IMAGE, USER_AVATAR } from "../utils/constant";
 
 const Login = () => {
   const [isSignIn, SetIsSignIn] = useState(true);
@@ -42,8 +43,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(auth.currentUser, {
             displayName: name.current.value,
-            photoURL:
-              "https://cdn-icons-png.flaticon.com/512/10753/10753869.png",
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -96,7 +96,7 @@ const Login = () => {
       <Header />
       <div className="absolute top-0">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a99688ca-33c3-4099-9baa-07a2e2acb398/ca15fd28-b624-4852-8bfe-9cdd5c88475d/IN-en-20240520-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BG_IMAGE}
           alt="background"
         />
       </div>
